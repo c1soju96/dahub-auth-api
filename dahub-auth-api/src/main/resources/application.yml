@@ -1,0 +1,45 @@
+server:
+  port: 8089
+  error:
+    include-exception: false
+    include-message: always
+    include-stacktrace: ON_PARAM
+    whitelabel:
+      enabled: true
+spring:
+  datasource:
+    url: jdbc:h2:~/test;DB_CLOSE_ON_EXIT=FALSE;AUTO_SERVER=TRUE
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+    initialization-mode: always
+    schema: classpath*:db/h2/schema.sql
+    data: classpath*:db/h2/data.sql
+    hikari:
+      pool-name: jpa-hikari-pool
+      maximum-pool-size: 5
+  h2:
+    console:
+      enable: true
+      path: /h2-console
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  messages:
+    encoding: UTF-8
+
+
+jwt.secret: '8sknjlO3NPTBqo319DHLNqsQAfRJEdKsETOds'
+
+auth:
+  secret: '8sknjlecqwwO3NPTBqo319DHLNqsQAfRJEdKsETOdssdfvasdvqer322315'
+  tokenExpiry: 18000000
+  refreshTokenExpiry: 604800000
+
+apiKey: "36bddb74-043c-4fcd-a17d-d7089bf65b90"
+
+logging:
+  level: 
+    org.hibernate.type: trace
